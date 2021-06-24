@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 import {
   Container,
   CssBaseline,
   makeStyles,
-  Typography,
-} from "@material-ui/core";
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-import { green } from "@material-ui/core/colors";
+  Typography
+} from '@material-ui/core'
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
+import { green } from '@material-ui/core/colors'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-}));
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
+}))
 
-export default function Success(props) {
-  const classes = useStyles();
+export default function Success (props) {
+  const classes = useStyles()
 
   return (
     <Container component="main" maxWidth="xs">
@@ -33,5 +33,5 @@ export default function Success(props) {
         </Typography>
       </div>
     </Container>
-  );
+  )
 }

@@ -10,6 +10,7 @@ import {
   Typography
 } from '@material-ui/core'
 import OTPInput from './OTPInput'
+import { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GoogleAuth (props) {
   const classes = useStyles()
+  const [input, setInput] = useState("")
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -48,7 +50,7 @@ export default function GoogleAuth (props) {
                 length={6}
                 className="otpContainer"
                 inputClassName="otpInput"
-                onChangeOTP={(otp) => console.log('Number OTP: ', otp)}
+                onChangeOTP={(otp) => setInput(otp)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -59,6 +61,7 @@ export default function GoogleAuth (props) {
                 color="primary"
                 className={classes.submit}
                 onClick={onSubmit}
+                disabled={input.length < 6}
               >
                 Bestätigen
               </Button>
