@@ -24,6 +24,7 @@
         "only-warn"
     ],
     "rules": {
-        "semi": 2
+        "semi": 2,
+        "@typescript-eslint/ban-ts-ignore": "off"
     }
 }
