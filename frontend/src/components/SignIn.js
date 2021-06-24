@@ -1,5 +1,5 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   CssBaseline,
@@ -7,31 +7,42 @@ import {
   Typography,
   TextField,
   Button,
-  Box
-} from '@material-ui/core'
+  Box,
+} from "@material-ui/core";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
-}))
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
-export default function SignIn () {
-  const classes = useStyles()
+export default function SignIn() {
+  const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const mockUser = { email: "user@test.com", password: "test123" };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (email !== mockUser.email) toast.error("Email Adresse ist falsch");
+    else if (password !== mockUser.password) toast.error("Password ist falsch");
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -50,8 +61,9 @@ export default function SignIn () {
             id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
             autoFocus
+            value={email}
+            onInput={(e) => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -62,7 +74,8 @@ export default function SignIn () {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            value={password}
+            onInput={(e) => setPassword(e.target.value)}
           />
           <Button
             type="submit"
@@ -70,6 +83,7 @@ export default function SignIn () {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={onSubmit}
           >
             Sign In
           </Button>
@@ -77,5 +91,5 @@ export default function SignIn () {
       </div>
       <Box mt={8}></Box>
     </Container>
-  )
+  );
 }

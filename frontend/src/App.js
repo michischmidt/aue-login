@@ -1,11 +1,16 @@
-import React from 'react'
-import Container from '@material-ui/core/Container'
-import TestSetup from 'components/TestSetup'
+import React from "react";
+import Container from "@material-ui/core/Container";
+import TestSetup from "components/TestSetup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function App () {
+export default function App() {
   return (
-    <Container maxWidth="sm">
-      <TestSetup />
-    </Container>
-  )
+    <div>
+      <Container maxWidth="sm">
+        <TestSetup />
+      </Container>
+      <ToastContainer position="top-center" />
+    </div>
+  );
 }
