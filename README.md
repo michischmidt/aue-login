@@ -6,6 +6,8 @@ Developed with node.js v12.6.3
 
 ## Frontend
 
+Template from https://github.com/mui-org/material-ui/tree/master/examples/create-react-app
+
 Install dependencies
 
 `npm install`
@@ -26,7 +28,9 @@ For fixing all lint errors
 
 ## Backend
 
-# Node ES6 REST Template
+Template from https://github.com/archfirst/node-es6-rest-template
+
+### Written with Node Express ES6
 
 The purpose of this template is to kick-start your Node.js projects using ES6.
 It implements best practices in developing RESTful APIs and Domain-Driven
@@ -55,6 +59,7 @@ To verify that the application is working correctly, point your browser to
 [http://localhost:8080/api/books/design-patterns](http://localhost:8080/api/books/design-patterns) -
 you should see a response with one books in JSON format.
 
+TODO: update Swagger to our endpoints
 You can see a OpenAPI (Swagger) definition of the REST API at
 [http://localhost:8080/api-docs/](http://localhost:8080/api-docs/). This
 interface also allows you to interact with the API.

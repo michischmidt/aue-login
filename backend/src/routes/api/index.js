@@ -1,5 +1,5 @@
 import express from "express";
-import { booksRouter } from "./books";
+import { authRouter } from "./auth";
 
 export const apiRouter = express.Router();
-apiRouter.use("/books", booksRouter);
+apiRouter.use("/auth", authRouter);

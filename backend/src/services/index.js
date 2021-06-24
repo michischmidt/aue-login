@@ -1,1 +1,1 @@
-export { bookService } from "./book.service";
+export { authService } from "./auth.service";

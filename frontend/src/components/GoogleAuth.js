@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -8,31 +8,36 @@ import {
   makeStyles,
   TextField,
   Typography
-} from '@material-ui/core'
-import OTPInput from './OTPInput'
-import { useState } from 'react'
+} from "@material-ui/core";
+import OTPInput from "./OTPInput";
 
-const useStyles = makeStyles((theme) => ({
+import axios from "axios";
+import { toast } from "react-toastify";
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   submit: {
     margin: theme.spacing(5, 0, 1)
   }
-}))
+}));
 
-export default function GoogleAuth (props) {
-  const classes = useStyles()
-  const [input, setInput] = useState("")
+export default function GoogleAuth(props) {
+  const classes = useStyles();
+  const [input, setInput] = useState("");
 
-  const onSubmit = async (e) => {
-    e.preventDefault()
-    // TODO: backend call for numbers and check if correct
-    props.handleAuthSuccess(true)
-  }
+  const onSubmit = async e => {
+    e.preventDefault();
+    const res = await axios.get("http://localhost:8080/api/auth/google-code");
+    if (res.data.code === input) {
+      props.handleAuthSuccess(true);
+    } else {
+      toast.error("Code stimmt nicht überein");
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -50,7 +55,7 @@ export default function GoogleAuth (props) {
                 length={6}
                 className="otpContainer"
                 inputClassName="otpInput"
-                onChangeOTP={(otp) => setInput(otp)}
+                onChangeOTP={otp => setInput(otp)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -70,5 +75,5 @@ export default function GoogleAuth (props) {
         </Box>
       </div>
     </Container>
-  )
+  );
 }
