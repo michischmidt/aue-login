@@ -19,12 +19,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center'
   },
   submit: {
-    margin: theme.spacing(7, 0, 1)
+    margin: theme.spacing(5, 0, 1)
   }
 }))
 
 export default function GoogleAuth (props) {
   const classes = useStyles()
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    // TODO: backend call for numbers and check if correct
+    props.handleAuthSuccess(true)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -52,7 +58,7 @@ export default function GoogleAuth (props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                onClick={() => props.handleAuthChoice('googleAuth')}
+                onClick={onSubmit}
               >
                 Bestätigen
               </Button>

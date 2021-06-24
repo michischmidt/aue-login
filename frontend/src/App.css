@@ -2,10 +2,16 @@
   margin: 5% auto;
 }
 
+@media only screen and (min-width: 600px) {
+  .otpContainer {
+    margin-left: 9%;
+  }
+}
+
 .otpInput {
-  width: 3rem !important;
+  width: 2.5rem !important;
   height: 3rem;
-  margin: 0 0.3rem;
+  margin: 0 0.17rem;
   font-size: 2rem;
   text-align: center;
   border-radius: 4px;
