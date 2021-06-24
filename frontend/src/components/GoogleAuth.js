@@ -6,7 +6,6 @@ import {
   CssBaseline,
   Grid,
   makeStyles,
-  TextField,
   Typography
 } from "@material-ui/core";
 import OTPInput from "./OTPInput";
