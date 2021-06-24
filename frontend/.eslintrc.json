@@ -3,6 +3,11 @@
         "browser": true,
         "es2021": true
     },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "extends": [
         "plugin:react/recommended",
         "standard"
@@ -15,8 +20,10 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "only-warn"
     ],
     "rules": {
+        "semi": 2
     }
 }
