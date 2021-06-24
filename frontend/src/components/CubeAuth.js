@@ -70,8 +70,7 @@ export default function GoogleAuth(props) {
           // throw here to handle errors in catch block
           throw new Error(res.statusText);
         }
-
-        const code = await res.json();
+        const code = await res.data;
         if (isCancelled()) return;
         console.log(code);
       } catch (err) {
