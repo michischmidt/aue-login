@@ -30,7 +30,7 @@ export default function GoogleAuth(props) {
 
   const onSubmit = async e => {
     e.preventDefault();
-    const res = await axios.get("http://localhost:8080/api/auth/google-code");
+    const res = await axios.get("https://aue-3d-auth.herokuapp.com/api/auth/google-code");
     if (res.data.code === input) {
       props.handleAuthSuccess(true);
     } else {

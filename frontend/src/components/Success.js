@@ -23,7 +23,7 @@ export default function Success() {
 
   useEffect(() => {
     const resetAuth = async () => {
-      await axios.post("http://localhost:8080/api/auth/cube-status", {
+      await axios.post("https://aue-3d-auth.herokuapp.com/api/auth/cube-status", {
         status: false
       });
     };

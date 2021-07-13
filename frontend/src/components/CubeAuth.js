@@ -60,7 +60,7 @@ export default function GoogleAuth(props) {
     async isCancelled => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/auth/cube-status"
+          "https://aue-3d-auth.herokuapp.com/api/auth/cube-status"
         );
         // check for cancellation after each await
         // to prevent further action on a stale closure
