@@ -11,7 +11,8 @@
         "url": "https://github.com/archfirst/node-es6-rest-template.git"
     },
     "scripts": {
-        "start": "nodemon --exec babel-node --inspect src/server.js",
+        "dev": "nodemon --exec babel-node --inspect src/server.js",
+        "start": "node ./dist/server.js",
         "prebuild": "rimraf dist",
         "build": "npm run lint && babel src --out-dir dist && npm run copy-to-dist",
         "serve": "node dist/server.js",
