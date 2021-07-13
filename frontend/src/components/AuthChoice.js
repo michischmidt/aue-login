@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Button,
   Container,
@@ -6,22 +6,22 @@ import {
   Grid,
   makeStyles,
   Typography
-} from '@material-ui/core'
+} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   submit: {
     margin: theme.spacing(3, 0, 1)
   }
-}))
+}));
 
-export default function AuthChoice (props) {
-  const classes = useStyles()
+export default function AuthChoice(props) {
+  const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -38,7 +38,7 @@ export default function AuthChoice (props) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={() => props.handleAuthChoice('googleAuth')}
+              onClick={() => props.handleAuthChoice("googleAuth")}
             >
               Google Auth
             </Button>
@@ -48,13 +48,13 @@ export default function AuthChoice (props) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={() => props.handleAuthChoice('cubeAuth')}
+              onClick={() => props.handleAuthChoice("cubeAuth")}
             >
-              Cube Auth
+              3D Auth
             </Button>
           </Grid>
         </Grid>
       </div>
     </Container>
-  )
+  );
 }

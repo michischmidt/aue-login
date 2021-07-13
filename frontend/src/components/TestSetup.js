@@ -30,7 +30,9 @@ export default function TestSetup() {
         {login && testRun === "googleAuth" && !authSuccess && (
           <GoogleAuth handleAuthSuccess={setAuthSuccess} />
         )}
-        {login && testRun === "cubeAuth" && !authSuccess && <CubeAuth />}
+        {login && testRun === "cubeAuth" && !authSuccess && (
+          <CubeAuth handleAuthSuccess={setAuthSuccess} />
+        )}
         {authSuccess && <Success />}
       </div>
     </Container>

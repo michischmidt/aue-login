@@ -12,3 +12,21 @@ authRouter.get(
     res.send(code);
   })
 );
+
+// Get cube auth status
+authRouter.get(
+  "/cube-status",
+  asyncHandler(async (req, res) => {
+    const code = await authService.getCubeAuthStatus();
+    res.send(code);
+  })
+);
+
+// Set cube auth status
+authRouter.post(
+  "/cube-status",
+  asyncHandler(async (req, res) => {
+    const code = await authService.setCubeAuthStatus(req.body.status);
+    res.send(code);
+  })
+);

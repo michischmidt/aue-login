@@ -60,7 +60,7 @@ export default function GoogleAuth(props) {
     async isCancelled => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/auth/google-code"
+          "http://localhost:8080/api/auth/cube-status"
         );
         // check for cancellation after each await
         // to prevent further action on a stale closure
@@ -70,9 +70,13 @@ export default function GoogleAuth(props) {
           // throw here to handle errors in catch block
           throw new Error(res.statusText);
         }
-        const code = await res.data;
+        const status = await res.data;
+        console.log(status);
+        if (status.status) {
+          setLoading(false);
+          props.handleAuthSuccess(true);
+        }
         if (isCancelled()) return;
-        console.log(code);
       } catch (err) {
         console.log("Fetch Error:", err);
       }
@@ -86,7 +90,7 @@ export default function GoogleAuth(props) {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5" align="center">
-          Geben gehen Sie bitte in die App und folgen den Anweisungen
+          Gehen Sie bitte in die App und folgen den Anweisungen
         </Typography>
         <Box mt={5}>{loading && <CircularProgress size={50} />}</Box>
       </div>
